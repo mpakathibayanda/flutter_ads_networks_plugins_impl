@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   startapp_sdk: ^1.0.1
   flutter_riverpod: ^2.6.1
+  clever_ads_solutions: ^0.6.3
 
 dev_dependencies:
   flutter_test:

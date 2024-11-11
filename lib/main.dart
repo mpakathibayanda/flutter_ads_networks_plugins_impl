@@ -24,32 +24,53 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Start Ads Demo'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
               onPressed: () {
-                final ref = ProviderContainer();
                 ref.read(startAdsCtrlProvider.notifier).showInterstitialAd();
               },
-              child: const Text('Show interstitial ad'),
+              child: const Text(
+                'Show interstitial ad',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+              ),
               onPressed: () {
-                final ref = ProviderContainer();
-                ref.read(startAdsCtrlProvider.notifier).showInterstitialAd();
+                ref.read(startAdsCtrlProvider.notifier).showRewardedAd();
               },
-              child: const Text('Show rewarded video ad'),
+              child: const Text(
+                'Show rewarded video ad',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             )
           ],
         ),
